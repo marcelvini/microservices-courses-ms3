@@ -2,7 +2,9 @@ import { Controller, Get, UseGuards } from '@nestjs/common';
 import { CourseService } from './course.service';
 import { course1Guard } from './guards/course1.guard';
 import { course2Guard } from './guards/course2.guard';
-
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
+@ApiTags('courses')
+@ApiBearerAuth('access-token')
 @Controller('course')
 export class CourseController {
   constructor(private readonly courseService: CourseService) {}
